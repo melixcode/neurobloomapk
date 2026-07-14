@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NeuroBloom - Her Ses Bir Umut</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="app-container" class="app-container">
+
+        <section id="splash-screen" class="view-section active">
+            <div class="bg-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+            </div>
+            <div class="splash-content">
+                <div class="neurobot-splash-wrapper">
+                    <div class="neurobot-graphic jump-anim" id="splash-bot">
+                        <div class="bot-head">
+                            <div class="bot-eyes"><span class="eye left"></span><span class="eye right"></span></div>
+                            <div class="bot-mouth-smile"></div>
+                        </div>
+                        <div class="bot-body"></div>
+                    </div>
+                    <div class="speech-bubble">Merhaba! Ben NeuroBot.</div>
+                </div>
+                <h1 class="brand-title">NeuroBloom</h1>
+                <p class="brand-slogan">"Her Ses Bir Umut."</p>
+                <button id="btn-splash-start" class="btn-primary ripple-effect" aria-label="Uygulamaya Başla">Başla</button>
+            </div>
+        </section>
+
+        <section id="login-screen" class="view-section">
+            <h2 class="section-title">Kim Giriş Yapıyor?</h2>
+            <div class="role-cards-container">
+                <div class="role-card ripple-effect" data-role="child">
+                    <span class="role-emoji" role="img" aria-label="Çocuk">👧</span>
+                    <h3>Çocuk</h3>
+                    <p>Eğlenceli egzersizler ve oyunlar dünyası!</p>
+                </div>
+                <div class="role-card ripple-effect" data-role="parent">
+                    <span class="role-emoji" role="img" aria-label="Ebeveyn">👨‍👩‍👧</span>
+                    <h3>Ebeveyn</h3>
+                    <p>Gelişim raporları ve günlük görev takibi.</p>
+                </div>
+                <div class="role-card ripple-effect" data-role="therapist">
+                    <span class="role-emoji" role="img" aria-label="Terapist">👩‍⚕️</span>
+                    <h3>Terapist</h3>
+                    <p>Danışan yönetimi, ödevler ve ses kayıtları.</p>
+                </div>
+            </div>
+        </section>
+
+        <main id="main-content" class="view-section layout-with-nav">
+            <header class="app-header">
+                <div class="header-profile" id="header-avatar-trigger">
+                    <div class="mini-avatar">👧</div>
+                    <span id="header-username">Bulut</span>
+                </div>
+                <div class="header-actions">
+                    <button class="icon-btn" id="btn-notifications" aria-label="Bildirimler">🔔<span class="badge"></span></button>
+                    <button class="icon-btn" id="btn-settings" aria-label="Ayarlar">⚙️</button>
+                </div>
+            </header>
+
+            <div class="scrollable-content">
+                
+                <div id="view-home" class="sub-view active">
+                    <div class="neurobot-live-card">
+                        <div class="neurobot-graphic idle-anim breathing" id="live-bot">
+                            <div class="bot-head">
+                                <div class="bot-eyes"><span class="eye left"></span><span class="eye right"></span></div>
+                                <div class="bot-mouth-smile"></div>
+                            </div>
+                            <div class="bot-body"></div>
+                        </div>
+                        <div class="live-bot-bubble" id="live-bot-speech">Harika gidiyorsun! Bugün hangi oyunu oynamak istersin?</div>
+                    </div>
+
+                    <div class="glass-card motivation-card">
+                        <h4>🌟 Günün Motivasyonu</h4>
+                        <p id="motivation-text">"Her küçük ses, büyük bir geleceğin adımıdır. Sen çok güçlüsün!"</p>
+                    </div>
+
+                    <div class="stats-row">
+                        <div class="stat-box glass-card">
+                            <span class="stat-icon">🔥</span>
+                            <div class="stat-info">
+                                <span class="stat-val" id="stat-streak">3 Gün</span>
+                                <span class="stat-lbl">Seri</span>
+                            </div>
+                        </div>
+                        <div class="stat-box glass-card">
+                            <span class="stat-icon">⚡</span>
+                            <div class="stat-info">
+                                <span class="stat-val" id="stat-xp">140 XP</span>
+                                <span class="stat-lbl">Toplam</span>
+                            </div>
+                        </div>
+                        <div class="stat-box glass-card">
+                            <span class="stat-icon">🏆</span>
+                            <div class="stat-info">
+                                <span class="stat-val" id="stat-level">Lv. 2</span>
+                                <span class="stat-lbl">Seviye</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card progress-card">
+                        <div class="progress-header">
+                            <span>Seviye İlerlemesi</span>
+                            <span id="progress-percent">40%</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" id="home-progress-bar" style="width: 40%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="menu-grid">
+                        <div class="grid-item glass-card ripple-effect" data-target="view-games">
+                            <span class="grid-icon bg-pastel-pink">🎮</span>
+                            <h4>Oyunlar</h4>
+                        </div>
+                        <div class="grid-item glass-card ripple-effect" data-target="view-exercises">
+                            <span class="grid-icon bg-pastel-mor">🧠</span>
+                            <h4>Egzersizler</h4>
+                        </div>
+                        <div class="grid-item glass-card ripple-effect" data-target="view-mood">
+                            <span class="grid-icon bg-pastel-sari">😊</span>
+                            <h4>Duygu Günlüğü</h4>
+                        </div>
+                        <div class="grid-item glass-card ripple-effect" data-target="view-progress">
+                            <span class="grid-icon bg-pastel-mavi">📈</span>
+                            <h4>İlerleme</h4>
+                        </div>
+                        <div class="grid-item glass-card ripple-effect" data-target="view-badges">
+                            <span class="grid-icon bg-pastel-turuncu">🏆</span>
+                            <h4>Rozetler</h4>
+                        </div>
+                        <div class="grid-item glass-card ripple-effect" data-target="view-room">
+                            <span class="grid-icon bg-pastel-yesil">🤖</span>
+                            <h4>Bot Odası</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="view-games" class="sub-view">
+                    <h3 class="view-title">🎮 Eğlenceli Dil Oyunları</h3>
+                    <div class="games-list" id="games-container">
+                        </div>
+                </div>
+
+                <div id="view-exercises" class="sub-view">
+                    <h3 class="view-title">🧠 Bilimsel Terapiler</h3>
+                    <div class="exercise-categories">
+                        <button class="tab-btn active" data-cat="harf">Harf</button>
+                        <button class="tab-btn" data-cat="hece">Hece</button>
+                        <button class="tab-btn" data-cat="fiil">Fiil</button>
+                    </div>
+                    <div class="exercise-workspace glass-card">
+                        <div id="exercise-bot-area">
+                            <div class="mouth-avatar" id="mouth-animator">👄</div>
+                        </div>
+                        <h4 id="exercise-target">"A" Sesi Pratiği</h4>
+                        <p class="exercise-desc">NeuroBot'u izle ve sesi tekrar et.</p>
+                        
+                        <div class="media-preview-grid">
+                            <div class="camera-box">
+                                <video id="user-camera" autoplay playsinline muted></video>
+                                <div class="cam-placeholder">📷 Kamera Açık</div>
+                            </div>
+                            <div class="mic-status-box">
+                                <div class="audio-wave" id="audio-wave-bars">
+                                    <span></span><span></span><span></span><span></span>
+                                </div>
+                                <span id="mic-text">Mikrofon Hazır</span>
+                            </div>
+                        </div>
+
+                        <div class="exercise-actions">
+                            <button class="btn-secondary" id="btn-listen-sample">🔊 Örnek Dinle</button>
+                            <button class="btn-primary" id="btn-start-record">🎙️ Kaydet ve Söyle</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="view-mood" class="sub-view">
+                    <div class="glass-card mood-card-main">
+                        <h3>😊 Bugün Nasıl Hissediyorsun?</h3>
+                        <div class="emoji-selector">
+                            <button class="emoji-btn" data-mood="😀">😀</button>
+                            <button class="emoji-btn" data-mood="😄">😄</button>
+                            <button class="emoji-btn" data-mood="🙂">🙂</button>
+                            <button class="emoji-btn" data-mood="😐">😐</button>
+                            <button class="emoji-btn" data-mood="😔">😔</button>
+                            <button class="emoji-btn" data-mood="😭">😭</button>
+                            <button class="emoji-btn" data-mood="😡">😡</button>
+                        </div>
+                        <textarea id="mood-note" placeholder="Buraya bir şeyler yazmak ister misin? Seni dinliyorum..."></textarea>
+                        <button id="btn-save-mood" class="btn-primary">Günlüğü Kaydet</button>
+                    </div>
+                </div>
+
+                <div id="view-room" class="sub-view">
+                    <div class="room-wrapper" id="neuro-room">
+                        <div class="room-sky-state" id="room-sky"></div>
+                        <div class="room-furniture window">🪟 <span class="sky-obj" id="sky-obj">☀️</span></div>
+                        <div class="room-furniture bookshelf">📚 Kitaplık</div>
+                        <div class="room-furniture desk">💻 Çalışma Masası</div>
+                        <div class="room-furniture sofa">🛋️ Konforlu Koltuk</div>
+                        <div class="room-furniture plant">🪴 Akıllı Bitki</div>
+                        <div class="room-furniture rug">🏮 Yumuşak Halı</div>
+                        <div class="room-furniture badge-board">📌 Rozet Panosu</div>
+                        <div class="room-furniture music-box" id="music-box-trigger">📻 Müzik Kutusu</div>
+                        
+                        <div class="room-bot-position">
+                            <div class="neurobot-graphic breathing" id="room-bot">
+                                <div class="bot-head">
+                                    <div class="bot-eyes"><span class="eye left"></span><span class="eye right"></span></div>
+                                    <div class="bot-mouth-smile"></div>
+                                </div>
+                                <div class="bot-body" id="room-bot-body"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="room-controls glass-card">
+                        <p>Oda Modu otomatik olarak saate göre değişir. Test etmek için el ile değiştirebilirsiniz:</p>
+                        <div class="btn-group">
+                            <button class="btn-mini" onclick="window.app.roomComponent.changeTime('morning')">Sabah</button>
+                            <button class="btn-mini" onclick="window.app.roomComponent.changeTime('evening')">Akşam</button>
+                            <button class="btn-mini" onclick="window.app.roomComponent.changeTime('night')">Gece</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="view-progress" class="sub-view">
+                    <h3 class="view-title">📈 Gelişim Grafiği</h3>
+                    <div class="glass-card stat-detail-card">
+                        <div class="chart-mockup">
+                            <div class="chart-bar" style="height: 40%"><span>Pzt</span></div>
+                            <div class="chart-bar" style="height: 65%"><span>Sal</span></div>
+                            <div class="chart-bar" style="height: 85%"><span>Çar</span></div>
+                            <div class="chart-bar" style="height: 50%"><span>Per</span></div>
+                            <div class="chart-bar" style="height: 95%"><span>Cum</span></div>
+                        </div>
+                        <p class="chart-caption">Bu hafta tamamlanan konuşma hedefleri oranı %72 arttı!</p>
+                    </div>
+                </div>
+
+                <div id="view-badges" class="sub-view">
+                    <h3 class="view-title">🏆 Kazandığın Başarılar</h3>
+                    <div class="badges-grid" id="badges-container-list">
+                        </div>
+                </div>
+
+                <div id="view-profile" class="sub-view">
+                    <div class="glass-card profile-main-card">
+                        <div class="big-avatar">👧</div>
+                        <h2 id="profile-name">Bulut Yılmaz</h2>
+                        <span class="profile-badge-tag">Süper Konuşmacı</span>
+                        
+                        <div class="profile-stats-grid">
+                            <div class="p-stat"><span>Level</span><strong id="p-level">2</strong></div>
+                            <div class="p-stat"><span>Toplam XP</span><strong id="p-xp">140</strong></div>
+                            <div class="p-stat"><span>Seri</span><strong id="p-streak">3 Gün</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="view-parent-panel" class="sub-view">
+                    <h3 class="view-title">👨‍👩‍👧 Ebeveyn Takip Alanı</h3>
+                    <div class="glass-card panel-card">
+                        <h4>Çocuğunuzun Haftalık Analizi</h4>
+                        <p>Apraksi Terapi Uyum Skoru: <strong>%88</strong></p>
+                        <p>En Çok Pratik Yapılan Ses: <strong>"B" ve "M" Dudak Sesleri</strong></p>
+                        <div class="alert-box yesil">Terapistiniz yeni bir ev ödevi ekledi!</div>
+                    </div>
+                </div>
+
+                <div id="view-therapist-panel" class="sub-view">
+                    <h3 class="view-title">👩‍⚕️ Terapist Yönetim Paneli</h3>
+                    <div class="glass-card panel-card">
+                        <h4>Aktif Danışan Listesi</h4>
+                        <ul class="therapist-student-list">
+                            <li>👦 Bulut Yılmaz (6 Yaş) - <span class="status-ok">Aktif</span></li>
+                            <li>👧 Defne Kaya (8 Yaş) - <span class="status-alert">Ödev Bekliyor</span></li>
+                        </ul>
+                        <button class="btn-primary btn-sm">+ Yeni Danışan Ekle</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <nav class="bottom-nav">
+                <button class="nav-item active" data-target="view-home">
+                    <span class="nav-icon">🏠</span><span class="nav-text">Ana Sayfa</span>
+                </button>
+                <button class="nav-item" data-target="view-games">
+                    <span class="nav-icon">🎮</span><span class="nav-text">Oyunlar</span>
+                </button>
+                <button class="nav-item" data-target="view-exercises">
+                    <span class="nav-icon">🧠</span><span class="nav-text">Egzersiz</span>
+                </button>
+                <button class="nav-item" data-target="view-room">
+                    <span class="nav-icon">🤖</span><span class="nav-text">Bot Odası</span>
+                </button>
+                <button class="nav-item" data-target="view-profile">
+                    <span class="nav-icon">👤</span><span class="nav-text">Profil</span>
+                </button>
+            </nav>
+        </main>
+
+        <div id="global-modal" class="modal-overlay">
+            <div class="modal-content glass-card bounce-anim">
+                <span id="modal-emoji" class="modal-big-emoji">🎉</span>
+                <h3 id="modal-title">Tebrikler!</h3>
+                <p id="modal-message">Harika bir iş çıkardın.</p>
+                <button id="modal-close-btn" class="btn-primary">Harika!</button>
+            </div>
+            <div id="confetti-canvas-container"></div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
